@@ -14,7 +14,7 @@ This repo provides an end to end example for streaming data from a webstore to B
 The data structure is based on the [Data Layer Ecommerce](https://developers.google.com/tag-manager/ecommerce-ga4) format recommended for Google Tag Manager.
 
 ## Git clone repo 
-:exclamation:
+
 ```
 git clone https://github.com/AmritRaj23/data-journey.git
 cd day-1/ecommerce-streaming
