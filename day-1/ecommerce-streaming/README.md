@@ -114,26 +114,6 @@ cat terraform.tfvars
 terraform init
 ```
 
-You should see the following output
-
-```
-Initializing the backend...
-
-Initializing provider plugins...
-- Checking for available provider plugins...
-- Downloading plugin for provider "google" (hashicorp/google) 3.48.0...
-
-Terraform has been successfully initialized!
-
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
-
-If you ever set or change modules or backend configuration for Terraform,
-rerun this command to reinitialize your working directory. If you forget, other
-commands will detect it and remind you to do so if necessary.
-```
-
 ### Create resources in Google Cloud
 
 Run the plan cmd to see what resources will be greated in your project.
@@ -171,8 +151,6 @@ google_compute_network.vpc_network: Creating...
 .
 .
 .
-google_compute_network.vpc_network: Creation complete after 44s [id=projects/default-project-id/global/networks/terraform-network]
-
 Apply complete! Resources: 20 added, 0 changed, 0 destroyed.
 
 Outputs:
