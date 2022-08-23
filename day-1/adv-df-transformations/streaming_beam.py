@@ -98,11 +98,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--output_table",
+        default="jp-sandbox-359611:retail_dataset.ecommerce_events",
         help="Output BigQuery table for results specified as: "
         "PROJECT:DATASET.TABLE or DATASET.TABLE.",
     )
     parser.add_argument(
         "--input_subscription",
+        default="projects/jp-sandbox-359611/subscriptions/ecommerce-events-pull",
         help="Input PubSub subscription of the form "
         '"projects/<PROJECT>/subscriptions/<SUBSCRIPTION>."',
     )
