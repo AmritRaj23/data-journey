@@ -14,3 +14,4 @@ TODO:
 ** Infra Setup in terraform
 ** Add Calls for infra to notebook
 ** Advanced transformations (e.g. support for multi nested data)
+** Enable sending curls from notebook
