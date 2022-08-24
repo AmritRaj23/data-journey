@@ -3,6 +3,12 @@ https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/dataflow/fl
 
 & Notebook from Managed Workbench Tutorials
 
+GCP Beam & Notebooks tutorial:
+https://cloud.google.com/dataflow/docs/guides/interactive-pipeline-development#set_interactivity_options
+
+Beam Programming Guide:
+https://beam.apache.org/documentation/programming-guide/#applying-transforms
+
 
 TODO:
 ** Infra Setup in terraform
