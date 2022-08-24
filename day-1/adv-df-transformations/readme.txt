@@ -7,3 +7,4 @@ https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/dataflow/fl
 TODO:
 ** Infra Setup in terraform
 ** Add Calls for infra to notebook
+** Advanced transformations (e.g. support for multi nested data)
