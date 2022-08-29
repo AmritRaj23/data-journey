@@ -188,17 +188,17 @@ Create stream by selecting MyQL and cloud storage connection profiles, and make 
 
 ```
 gcloud dataflow flex-template run datastream-replication
- --template-file-gcs-location gs://dataflow-templates-us-central1/latest/flex/Cloud_Datastream_to_BigQuery --region us-central1
+--template-file-gcs-location gs://dataflow-templates-us-central1/latest/flex/Cloud_Datastream_to_BigQuery
+--region us-central1
 --worker-region us-central1
 --network terraform-network
---parameters 
-inputFilePattern=gs://$project_id/data,
-gcsPubSubSubscription=projects/$project_id/subscriptions/datastream-subscription,
-inputFileFormat=avro,
-outputStagingDatasetTemplate=dataset,
-outputDatasetTemplate=dataset,
-deadLetterQueueDirectory=gs://$project_id/dlq/,
-serviceAccount=datastreampipeline@$project_id.iam.gserviceaccount.com
+--parameters
+  inputFilePattern=gs://${project_id}/data,gcsPubSubSubscription=projects/final-test-360907/subscriptions/datastream-subscription,
+  inputFileFormat=avro,
+  outputStagingDatasetTemplate=dataset,
+  outputDatasetTemplate=dataset,
+  deadLetterQueueDirectory=gs://${project_id}/dlq/,
+  serviceAccount=datastreampipeline@${project_id}.iam.gserviceaccount.com
 ```
 
 ## View the Data in BigQuery
