@@ -140,7 +140,7 @@ Open a file named create_mysql.sql in vim or your favorite editor, then copy the
 
 ```
 CREATE DATABASE IF NOT EXISTS database-datajourney;
-USE test;
+USE database-datajourney;
 
 CREATE TABLE IF NOT EXISTS database_datajourney.example_table (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -149,7 +149,7 @@ int_col INT,
 created_at TIMESTAMP
 );
 
-INSERT INTO test.example_table (text_col, int_col, created_at) VALUES
+INSERT INTO database-datajourney.example_table (text_col, int_col, created_at) VALUES
 ('hello', 0, '2020-01-01 00:00:00'),
 ('goodbye', 1, NULL),
 ('name', -987, NOW()),
