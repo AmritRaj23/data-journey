@@ -192,13 +192,13 @@ gcloud dataflow flex-template run datastream-replication
 --worker-region us-central1
 --network terraform-network
 --parameters 
-inputFilePattern=gs://terraform-test-360409/data,
-gcsPubSubSubscription=projects/terraform-test-360409/subscriptions/datastream-subscription,
+inputFilePattern=gs://$project_id/data,
+gcsPubSubSubscription=projects/$project_id/subscriptions/datastream-subscription,
 inputFileFormat=avro,
 outputStagingDatasetTemplate=dataset,
 outputDatasetTemplate=dataset,
-deadLetterQueueDirectory=gs://terraformtest-360409/dlq/,
-serviceAccount=datastreampipeline@terraform-test-360409.iam.gserviceaccount.com
+deadLetterQueueDirectory=gs://$project_id/dlq/,
+serviceAccount=datastreampipeline@$project_id.iam.gserviceaccount.com
 ```
 
 ## View the Data in BigQuery
