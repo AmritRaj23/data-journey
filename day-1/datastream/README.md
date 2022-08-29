@@ -142,7 +142,7 @@ Open a file named create_mysql.sql in vim or your favorite editor, then copy the
 CREATE DATABASE IF NOT EXISTS database-datajourney;
 USE database-datajourney;
 
-CREATE TABLE IF NOT EXISTS database_datajourney.example_table (
+CREATE TABLE IF NOT EXISTS database-datajourney.example_table (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 text_col VARCHAR(50),
 int_col INT,
