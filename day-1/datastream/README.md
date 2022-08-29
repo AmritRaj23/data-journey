@@ -254,7 +254,7 @@ SERVICE_ACCOUNT=$(gcloud sql instances describe mysql-instance | grep serviceAcc
 gsutil cp ${SQL_FILE} gs://${project_id}/resources/${SQL_FILE}
 gsutil iam ch serviceAccount:${SERVICE_ACCOUNT}:objectViewer gs://${project_id}
 
-gcloud sql import sql ${mysql-instance} gs://${project_id}/resources/${SQL_FILE} --quiet
+gcloud sql import sql mysql-instance gs://${project_id}/resources/${SQL_FILE} --quiet
 ```
 
 ## Verify updates in BigQuery
