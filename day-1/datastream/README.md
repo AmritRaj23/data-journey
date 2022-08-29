@@ -113,7 +113,7 @@ terraform apply -var-file terraform.tfvars
 This will show you a plan of everything that will be created and then the following notification where you should enter `yes` to proceed:
 
 ```
-Plan: 20 to add, 0 to change, 0 to destroy.
+Plan: 26 to add, 0 to change, 0 to destroy.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
@@ -131,11 +131,7 @@ google_compute_network.vpc_network: Creating...
 .
 .
 .
-Apply complete! Resources: 20 added, 0 changed, 0 destroyed.
-
-Outputs:
-
-cloud_run_proxy_url = https://pubsub-proxy-my-service-<id>-uc.a.run.app
+Apply complete! Resources: 26 added, 0 changed, 0 destroyed.
 ```
 
 ## Import a SQL file into MySQL
