@@ -24,8 +24,8 @@ What you’ll do:
 ## Git clone repo 
 
 ```
-git clone https://github.com/AmritRaj23/data-journey/day1.git
-cd day-1/datastream
+git clone https://github.com/AmritRaj23/data-journey.git
+cd data-journey/day-1/datastream
 ```
 
 ## Set-up Cloud Environment
