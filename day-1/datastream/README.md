@@ -211,7 +211,7 @@ Open a file named update_mysql.sql in vim or your editor, then copy the text bel
 
 ```
 CREATE DATABASE IF NOT EXISTS database-datajourney;
-USE test;
+USE database-datajourney;
 
 CREATE TABLE IF NOT EXISTS database-datajourney.example_table (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -242,7 +242,7 @@ INSERT INTO database-datajourney.example_table (text_col, int_col, created_at) V
 ('ghi', -987, NOW()),
 ('jkl', 2786, '2021-05-01 00:00:00');
 
-UPDATE test.example_table SET int_col=int_col*2;
+UPDATE database-datajourney.example_table SET int_col=int_col*2;
 ```
 
 Next, you will copy this file into the Cloud Storage bucket you created above (make sure you do not load the file into the `data/` directory), make the file accessible to your Cloud SQL service account, and import the SQL command into your database.
