@@ -178,14 +178,14 @@ curl POST ${CLOUD_RUN_PROXY}/json -d @datalayer/view_item.json \
 #### Send add to cart event and datalayer
 
 ```
-curl -v POST ${CLOUD_RUN_PROXY}/json -d @datalayer/add_to_cart.json \
+curl POST ${CLOUD_RUN_PROXY}/json -d @datalayer/add_to_cart.json \
 --header "Content-Type: application/json"
 ```
 
 #### Send purchase event and datalayer
 
 ```
-curl -vX POST ${CLOUD_RUN_PROXY}/json -d @datalayer/purchase.json \
+curl POST ${CLOUD_RUN_PROXY}/json -d @datalayer/purchase.json \
 --header "Content-Type: application/json"
 ```
 
