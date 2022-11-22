@@ -55,7 +55,7 @@ resource "google_project_iam_member" "datastream_admin" {
   member = "serviceAccount:${google_service_account.datastream_access.email}"
 }
 resource "google_sql_database_instance" "master" {    
-    name = "mysql_instance"
+    name = "mysql_database"
     database_version = "MYSQL_8_0"
     region = "us-central1"
     deletion_protection =  "false"
