@@ -1,6 +1,6 @@
 # Datastream - MySQL to BigQuery (preview)
 
-![Datastream](datastream.png)
+![Datastream](datastream-preview.png)
 
 Datastream is a serverless and easy-to-use Change Data Capture (CDC) and replication service that allows you to synchronize data across heterogeneous databases, storage systems, and applications reliably and with minimal latency. In this lab you’ll learn how to replicate data changes from your OLTP workloads into BigQuery, in real time. 
 
