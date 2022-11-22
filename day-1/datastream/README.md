@@ -160,7 +160,7 @@ gcloud sql import sql mysql-instance gs://${project_id}/resources/create_mysql.s
 
 In the Cloud Console UO, navigate to Datastream then click Enable to enable the Datastream AP.
 
-Create two connection profiles, one for the MySQL source, and another for the Cloud Storage destination.
+Create two connection profiles, one for the MySQL source, and another for the BigQuery destination.
 
 My SQL connection profile:
 - The IP and port of the Cloud SQL for MySQL instance created earlier
