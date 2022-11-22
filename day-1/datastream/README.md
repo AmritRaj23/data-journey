@@ -121,7 +121,7 @@ google_compute_network.vpc_network: Creating...
 .
 .
 .
-Apply complete! Resources: 26 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 
 ## Import a SQL file into MySQL
@@ -146,15 +146,15 @@ INSERT INTO database_datajourney.example_table (text_col, int_col, created_at) V
 ('other', 2786, '2021-01-01 00:00:00');
 ```
 
-Next, you will copy this file into the Cloud Storage bucket you created above (make sure you do not load the file into the `data/` directory), make the file accessible to your Cloud SQL service account, and import the SQL command into your database.
+Next, you will copy this file into the Cloud Storage bucket you created above, make the file accessible to your Cloud SQL service account, and import the SQL command into your database.
 
 ```
-SERVICE_ACCOUNT=$(gcloud sql instances describe mysql-instance | grep serviceAccountEmailAddress | awk '{print $2;}')
+SERVICE_ACCOUNT=$(gcloud sql instances describe mysql | grep serviceAccountEmailAddress | awk '{print $2;}')
 
 gsutil cp create_mysql.sql gs://${project_id}/resources/create_mysql.sql
 gsutil iam ch serviceAccount:${SERVICE_ACCOUNT}:objectViewer gs://${project_id}
 
-gcloud sql import sql mysql-instance gs://${project_id}/resources/create_mysql.sql --quiet
+gcloud sql import sql mysql gs://${project_id}/resources/create_mysql.sql --quiet
 ```
 
 ## Create Datastream resources
