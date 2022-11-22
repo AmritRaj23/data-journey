@@ -97,3 +97,8 @@ instance = "${google_sql_database_instance.master.name}"
 host = "%"
 password = "password123"
 }
+resource "google_storage_bucket" "gcs_bucket" {
+    name = "${var.project_id}"
+    location = "us-central1" 
+    force_destroy = true
+}
