@@ -1,22 +1,19 @@
-# Datastream - MySQL to BigQuery
+# Datastream - MySQL to BigQuery (preview)
 
 ![Datastream](datastream.png)
 
 Datastream is a serverless and easy-to-use Change Data Capture (CDC) and replication service that allows you to synchronize data across heterogeneous databases, storage systems, and applications reliably and with minimal latency. In this lab you’ll learn how to replicate data changes from your OLTP workloads into BigQuery, in real time. 
 
-In this hands-on lab you’ll deploy the below mentioned resources all at once via terrafrom or individually. Then, you will create and start a Datastream stream, Dataflow job for replication and CDC.
+In this hands-on lab you’ll deploy the below mentioned resources all at once via terrafrom or individually. Then, you will create and start a Datastream stream for replication and CDC.
 
 What you’ll do:
 
 - Prepare a MySQL Cloud SQL instance
-- Create a GCS bucket to be used in replication/CDC
-- Create a Pub/Sub topic, subscription, and a GCS Pub/Sub notification policy
 - Create a BigQuery dataset
 - Import data into the Cloud SQL instance
-- Create a Datastream connection profile referencing the MySQL DB
-- Create a Datastream connection profile referencing the GCS destination
+- Create a Datastream connection profile referencing MySQL DB as source profile
+- Create a Datastream connection profile referencing BigQuery as destination profile
 - Create a Datastream stream and start replication
-- Deploy a Dataflow job to replicate data
 - Write Inserts and Updates
 - Verify updates in BigQuery
 
@@ -48,13 +45,7 @@ gcloud config set project $project_id
 
 ```
 gcloud config list
-```
-
-### Enable Google Cloud APIs
-
-```
-gcloud services enable compute.googleapis.com dataflow.googleapis.com
-```
+````
 
 ### Set compute zone
 
@@ -63,11 +54,9 @@ gcloud config set compute/zone us-central1-f
 ```
 ## Deploy using Terraform
 
-Use Terraform to deploy the folllowing services defined in the `main.tf` file
+Use Terraform to deploy the folllowing services and netwroking resources defined in the `main.tf` file
 
 - Cloud SQL
-- Pub/Sub
-- Google Cloud Storage
 - BigQuery
 
 ### Install Terraform
@@ -178,27 +167,11 @@ My SQL connection profile:
 - username: `root`, password: `password123`
 - encryption: none
 - connectivity method: IP allowlisting
+BigQuery connection profile:
+- connection profile ID
 
-Cloud Storage connection profile:
-- connection profile path prefix: /data
+Create stream by selecting MyQL and BigQuery connection profiles, and make sure to mark the tables you want to replicate (we will only replicate the datastram-datajourney database), and finally run validation, and create and start the stream.
 
-Create stream by selecting MyQL and cloud storage connection profiles, and make sure to mark the tables you want to replicate (we will only replicate the datastram-datajourney database), and finally run validation, and create and start the stream.
-
-## Deploy Dataflow job
-
-```
-gcloud dataflow flex-template run datastream-replication
---template-file-gcs-location gs://dataflow-templates-us-central1/latest/flex/Cloud_Datastream_to_BigQuery
---region us-central1
---worker-region us-central1
---network terraform-network
---parameters
-  inputFilePattern=gs://${project_id}/data,gcsPubSubSubscription=projects/final-test-360907/subscriptions/datastream-subscription,
-  inputFileFormat=avro,
-  outputStagingDatasetTemplate=dataset,
-  outputDatasetTemplate=dataset,
-  deadLetterQueueDirectory=gs://${project_id}/dlq/,
-  serviceAccount=datastreampipeline@${project_id}.iam.gserviceaccount.com
 ```
 
 ## View the Data in BigQuery
@@ -245,7 +218,7 @@ INSERT INTO database_datajourney.example_table (text_col, int_col, created_at) V
 UPDATE database_datajourney.example_table SET int_col=int_col*2;
 ```
 
-Next, you will copy this file into the Cloud Storage bucket you created above (make sure you do not load the file into the `data/` directory), make the file accessible to your Cloud SQL service account, and import the SQL command into your database.
+Next, you will copy this file into the Cloud Storage bucket you created above, make the file accessible to your Cloud SQL service account, and import the SQL command into your database.
 
 ```
 SQL_FILE=update_mysql.sql
