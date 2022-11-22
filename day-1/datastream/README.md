@@ -57,6 +57,7 @@ gcloud config set compute/zone us-central1-f
 Use Terraform to deploy the folllowing services and netwroking resources defined in the `main.tf` file
 
 - Cloud SQL
+- Cloud Storage
 - BigQuery
 
 ### Install Terraform
@@ -102,7 +103,7 @@ terraform apply -var-file terraform.tfvars
 This will show you a plan of everything that will be created and then the following notification where you should enter `yes` to proceed:
 
 ```
-Plan: 6 to add, 0 to change, 0 to destroy.
+Plan: 7 to add, 0 to change, 0 to destroy.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
