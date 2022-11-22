@@ -49,6 +49,11 @@ resource "google_service_account" "datastream_access" {
   account_id = "datastreamaccess"
   display_name = "Datastream access"
 }
+resource "google_project_iam_member" "datastream_admin" {
+  project = var.project_id
+  role = "roles/datastream.admin"
+  member = "serviceAccount:${google_service_account.datastream_access.email}"
+}
 resource "google_sql_database_instance" "master" {    
     name = "mysql_instance"
     database_version = "MYSQL_8_0"
