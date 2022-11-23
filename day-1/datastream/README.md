@@ -171,7 +171,7 @@ My SQL connection profile:
 BigQuery connection profile:
 - connection profile ID
 
-Create stream by selecting MyQL and BigQuery connection profiles, and make sure to mark the tables you want to replicate (we will only replicate the datastram-datajourney database), and finally run validation, and create and start the stream.
+Create stream by selecting MyQL and BigQuery connection profiles, and make sure to mark the tables you want to replicate (we will only replicate the datastream-datajourney database), and finally run validation, and create and start the stream.
 
 ```
 
@@ -223,12 +223,12 @@ Next, you will copy this file into the Cloud Storage bucket you created above, m
 
 ```
 SQL_FILE=update_mysql.sql
-SERVICE_ACCOUNT=$(gcloud sql instances describe mysql-instance | grep serviceAccountEmailAddress | awk '{print $2;}')
+SERVICE_ACCOUNT=$(gcloud sql  describe mysql-instance | grep serviceAccountEmailAddress | awk '{print $2;}')
 
 gsutil cp ${SQL_FILE} gs://${project_id}/resources/${SQL_FILE}
 gsutil iam ch serviceAccount:${SERVICE_ACCOUNT}:objectViewer gs://${project_id}
 
-gcloud sql import sql mysql-instance gs://${project_id}/resources/${SQL_FILE} --quiet
+gcloud sql import sql mysql gs://${project_id}/resources/${SQL_FILE} --quiet
 ```
 
 ## Verify updates in BigQuery
