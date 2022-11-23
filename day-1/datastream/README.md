@@ -237,7 +237,7 @@ Run the query below to verify data changes in BiqQuery:
 SELECT
  *
 FROM
- `<project_id>.dataset.example_table`
+ `<project_id>.database_datajourney.example_table`
 LIMIT
  100
 ```
