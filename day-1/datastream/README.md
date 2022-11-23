@@ -173,8 +173,6 @@ BigQuery connection profile:
 
 Create stream by selecting MyQL and BigQuery connection profiles, and make sure to mark the tables you want to replicate (we will only replicate the datastream-datajourney database), and finally run validation, and create and start the stream.
 
-```
-
 ## View the data in BigQuery
 
 View these tables in the BigQuery UI.
