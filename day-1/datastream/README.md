@@ -221,7 +221,7 @@ Next, you will copy this file into the Cloud Storage bucket you created above, m
 
 ```
 SQL_FILE=update_mysql.sql
-SERVICE_ACCOUNT=$(gcloud sql  describe mysql-instance | grep serviceAccountEmailAddress | awk '{print $2;}')
+SERVICE_ACCOUNT=$(gcloud sql  describe mysql | grep serviceAccountEmailAddress | awk '{print $2;}')
 
 gsutil cp ${SQL_FILE} gs://${project_id}/resources/${SQL_FILE}
 gsutil iam ch serviceAccount:${SERVICE_ACCOUNT}:objectViewer gs://${project_id}
