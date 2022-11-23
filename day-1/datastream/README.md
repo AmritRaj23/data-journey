@@ -175,7 +175,7 @@ Create stream by selecting MyQL and BigQuery connection profiles, and make sure 
 
 ```
 
-## View the Data in BigQuery
+## View the data in BigQuery
 
 View these tables in the BigQuery UI.
 
