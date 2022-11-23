@@ -9,7 +9,7 @@ In this hands-on lab you’ll deploy the below mentioned resources all at once v
 What you’ll do:
 
 - Prepare a MySQL Cloud SQL instance
-- Create a BigQuery dataset
+- Create a Cloud Storage bucket
 - Import data into the Cloud SQL instance
 - Create a Datastream connection profile referencing MySQL DB as source profile
 - Create a Datastream connection profile referencing BigQuery as destination profile
