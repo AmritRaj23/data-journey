@@ -58,7 +58,6 @@ Use Terraform to deploy the folllowing services and netwroking resources defined
 
 - Cloud SQL
 - Cloud Storage
-- BigQuery
 
 ### Install Terraform
 
