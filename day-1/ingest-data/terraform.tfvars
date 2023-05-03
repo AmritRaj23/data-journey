@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-project_id                  = "data-journey-lhp2"
+project_id                  = "<PROJECT-ID>"
 delete_contents_on_destroy  = true

@@ -16,7 +16,7 @@ Before you jump into the challenges make sure you GCP project is prepared by:
 
 ... cloning the github repo
 ```
-git clone https://github.com/NucleusEngineering/hack-your-pipe.git
+git clone **ADD URL**
 ```
 
 ... entering your GCP Project ID in `./config_env.sh` & setting all necessary environment variables.
